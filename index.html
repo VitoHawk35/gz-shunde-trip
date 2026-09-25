@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州·顺德 十一慢游 5 日行程（10.2–10.7）</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; display:flex; height:100vh; overflow:hidden; background:#f5f3ee; }
+  #sidebar { width:400px; min-width:400px; overflow-y:auto; background:#fffdf8; border-right:1px solid #e3ddd0; padding:20px 18px; }
+  #map { flex:1; }
+  h1 { font-size:19px; color:#8c5a2b; margin-bottom:4px; }
+  .subtitle { font-size:12px; color:#999; margin-bottom:14px; line-height:1.6; }
+  .day { margin-bottom:16px; border-radius:10px; background:#fff; border:1px solid #eee6d8; overflow:hidden; cursor:pointer; }
+  .day:hover { box-shadow:0 2px 10px rgba(140,90,43,.15); }
+  .day-head { padding:10px 12px; color:#fff; font-weight:bold; font-size:14px; display:flex; align-items:center; gap:8px; }
+  .day-body { padding:10px 12px; font-size:13px; line-height:1.9; color:#444; }
+  .day-body b { color:#8c5a2b; }
+  .tag { display:inline-block; background:#f6efe3; color:#8c5a2b; border-radius:4px; padding:0 6px; font-size:12px; margin-right:4px; }
+  .warn { color:#c0392b; font-size:12px; }
+  .tip-box { background:#fdf6e7; border-left:4px solid #e0a63f; padding:10px 12px; font-size:12.5px; line-height:1.8; color:#6b5423; border-radius:6px; margin-bottom:14px; }
+  .legend { position:absolute; bottom:16px; right:16px; z-index:1000; background:rgba(255,255,255,.94); border-radius:8px; padding:10px 14px; font-size:12px; line-height:1.9; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+  .legend span.dot { display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
+  .num-marker { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); color:#fff; font-weight:bold; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); }
+  .num-marker span { transform:rotate(45deg); font-size:13px; }
+  .hotel-marker { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:#2c3e50; color:#fff; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); font-size:14px; }
+  .leaflet-popup-content { font-size:13px; line-height:1.7; font-family:inherit; }
+  @media (max-width:800px){ body{flex-direction:column;} #sidebar{width:100%;min-width:0;height:45%;} }
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h1>🥢 广州 + 顺德 十一慢游</h1>
+  <div class="subtitle">10/2（周五）18:00 抵达白云机场 → 10/7（周三）中午返程<br>双人 · 慢节奏 · 住宿预算 550 元/晚 · 点击每一天可在地图上定位</div>
+
+  <div class="tip-box">
+    💡 <b>核心思路</b>：广州 3 晚（北京路/公园前一带）→ 顺德 1 晚（大良）→ 最后 1 晚住广州南站附近，第二天中午从容返程。<b>港澳这次建议不去</b>（理由见文末），把节奏留给吃。
+  </div>
+
+  <div class="day" data-day="1">
+    <div class="day-head" style="background:#c0392b">D1 · 10/2（周五）抵达日</div>
+    <div class="day-body">
+      18:00 白云机场落地 → <b>地铁 3 号线</b>直达市区（约 50 分钟）<br>
+      🏨 入住<b>北京路/公园前</b>附近酒店<br>
+      🍲 晚餐：<b>惠食佳·啫八（滨江西路）</b>——啫啫煲本煲，打车约 15 分钟；<span class="warn">国庆必排队，下地铁先打电话/美味不用等取号</span><br>
+      🌃 饭后沿珠江散步，或回北京路看大佛寺夜景
+    </div>
+  </div>
+
+  <div class="day" data-day="2">
+    <div class="day-head" style="background:#d35400">D2 · 10/3（周六）老西关美食日</div>
+    <div class="day-body">
+      🍵 早茶：点都德/陶陶居（就近，9 点前到不排队）<br>
+      ⛩️ <b>陈家祠</b>（岭南建筑，1.5 小时）<br>
+      🍜 午餐：<b>文记河粉（西华路 418 号）</b>——手工现切河粉，<span class="warn">只开 8:00–14:00、周一休、常提前售罄，务必 11 点半前到</span>；隔壁就是食盈碗仔翅<br>
+      🧋 <b>专二港式饮品（荔湾分店，彩虹桥站 D 口）</b>——只做丝袜奶茶 + 柠檬茶两款，人均 16 元<br>
+      🏮 下午 <b>永庆坊</b>（钟书阁、粤剧博物馆）→ 黄昏 <b>沙面岛</b>散步<br>
+      🍢 晚餐可在上下九/宝华路解决
+    </div>
+  </div>
+
+  <div class="day" data-day="3">
+    <div class="day-head" style="background:#8e44ad">D3 · 10/4（周日）新城中轴线</div>
+    <div class="day-body">
+      ☕ 上午<b>东山口</b>慢逛：庙前西街、培正路红砖洋楼、觉园<br>
+      🥢 午餐：<b>利苑酒家（珠江新城店）</b>——"粤菜黄埔军校"，<span class="warn">十一务必提前 3–5 天订位</span>，推荐冰烧三层肉、杨枝甘露（发源地）<br>
+      🏙️ 下午<b>花城广场</b>→ 广东省博物馆（免费，需预约）→ 海心桥<br>
+      🗼 傍晚<b>广州塔</b>看夜景（不上塔也好看，省钱省力）
+    </div>
+  </div>
+
+  <div class="day" data-day="4">
+    <div class="day-head" style="background:#27ae60">D4 · 10/5（周一）转场顺德</div>
+    <div class="day-body">
+      睡到自然醒 → 地铁 2 号线到<b>广州南站</b> → 城际列车 <b>10 分钟到顺德站</b>（班次极密，随买随走）<br>
+      🏨 入住大良酒店，行李放下再逛<br>
+      🌿 下午<b>清晖园</b>（岭南四大名园）→ <b>华盖路步行街</b><br>
+      🍮 华盖路一路吃：民信/仁信双皮奶、韦记牛杂、欢姐伦教糕<br>
+      🐟 晚餐：均安鱼饼/鱼腐（鱼丸本丸）、手打牛肉丸、毋米粥火锅——女朋友的心愿一次满足
+    </div>
+  </div>
+
+  <div class="day" data-day="5">
+    <div class="day-head" style="background:#16a085">D5 · 10/6（周二）顺德慢半天 → 回广州</div>
+    <div class="day-body">
+      🍵 顺德早茶：龙的酒楼/顺德人家（虾饺、烧卖、肠粉水准都在线）<br>
+      🛶 上午<b>逢简水乡</b>（"小周庄"，坐手摇船慢慢晃，打车约 40 分钟）；不想去远就改<b>顺峰山公园</b>（近、免费）<br>
+      🍚 午餐：红星光发煲仔饭 或 黄但记陈村粉<br>
+      🚄 下午 4–5 点城际回广州南 → 🏨 住广州南站附近<br>
+      晚上南站商圈随便吃点，早点休息
+    </div>
+  </div>
+
+  <div class="day" data-day="6">
+    <div class="day-head" style="background:#2c3e50">D6 · 10/7（周三）返程</div>
+    <div class="day-body">
+      睡到自然醒，中午从广州南从容返程，结束干饭之旅 🎉
+    </div>
+  </div>
+
+  <div class="day" data-day="7">
+    <div class="day-head" style="background:#7f8c8d">备选 · 澳门一日游（灰色虚线）</div>
+    <div class="day-body">
+      如果一定要去港澳，<b>只推荐澳门</b>：顺德站 → 珠海站（城际约 1 小时）→ 拱北口岸过关 → 大三巴/官也街/安德鲁蛋挞，当晚回珠海或广州。<br>
+      ⚠️ 需<b>有效澳门签注</b>（现在就要查通行证！）；代价是砍掉 D3（利苑/广州塔）。香港更远、国庆西九龙人挤人，不建议。
+    </div>
+  </div>
+
+  <div class="tip-box">
+    🏨 <b>住宿建议（国庆涨价，现在就订）</b><br>
+    · 广州 3 晚（10/2–4）：全季/亚朵「北京路步行街」或「公园前」店，国庆约 500–700；超预算可看汉庭（西门口/纪念堂）<br>
+    · 顺德 1 晚（10/5）：亚朵（顺德清晖园/大良店），约 450–550<br>
+    · 最后 1 晚（10/6）：亚朵/全季「广州南站」店，约 400–500
+  </div>
+</div>
+<div id="map"></div>
+<div class="legend">
+  <div><span class="dot" style="background:#c0392b"></span>D1 抵达 + 惠食佳</div>
+  <div><span class="dot" style="background:#d35400"></span>D2 西关美食</div>
+  <div><span class="dot" style="background:#8e44ad"></span>D3 新城中轴</div>
+  <div><span class="dot" style="background:#27ae60"></span>D4 转场顺德</div>
+  <div><span class="dot" style="background:#16a085"></span>D5 水乡 + 回广州</div>
+  <div><span class="dot" style="background:#7f8c8d"></span>备选 澳门一日</div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('map', {zoomSnap:0.5}).setView([23.08, 113.28], 10.5);
+// 高德矢量中文底图（带地标POI/地铁站/商场名称）
+const gaode = L.tileLayer('https://wprd0{s}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=7', {subdomains:'1234', maxZoom:18, attribution:'© 高德地图'});
+// 高德卫星影像 + 路网标注
+const gaodeSat = L.layerGroup([
+  L.tileLayer('https://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}', {subdomains:'1234', maxZoom:18}),
+  L.tileLayer('https://wprd0{s}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=8&ltype=11', {subdomains:'1234', maxZoom:18})
+]);
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'© OpenStreetMap'});
+gaode.addTo(map);
+L.control.layers({'高德地图（中文地标，推荐）': gaode, '高德卫星影像': gaodeSat, 'OpenStreetMap（备用）': osm}).addTo(map);
+
+function mk(lat, lng, name, desc, color, num, hotel){
+  const icon = hotel
+    ? L.divIcon({className:'', html:`<div class="hotel-marker">🏨</div>`, iconSize:[26,26], iconAnchor:[13,13]})
+    : L.divIcon({className:'', html:`<div class="num-marker" style="background:${color}"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26]});
+  const amapUrl = `https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(name)}&src=guangzhou-trip&callnative=1`;
+  return L.marker([lat,lng], {icon}).bindPopup(
+    `<b>${name}</b><br>${desc}<br><a href="${amapUrl}" target="_blank" style="color:#1976d2;font-weight:bold">📍 在高德地图中打开（可导航）</a>`,
+    {maxWidth:280});
+}
+
+const days = [
+  { color:'#c0392b', pts:[
+      [23.3924,113.2988,'白云国际机场','10/2 18:00 抵达，地铁3号线进市区（约50分钟）',1],
+      [23.1290,113.2670,'酒店区域：公园前/北京路','连住3晚（10/2–10/4），地铁1/2号线交汇，去哪都方便',2,'hotel'],
+      [23.1055,113.2520,'惠食佳·啫八（滨江西路）','啫啫煲必吃！国庆排长队，先线上取号。推荐：啫啫黄鳝、啫啫生肠',3],
+    ], route:[[23.3924,113.2988],[23.1290,113.2670],[23.1055,113.2520]] },
+  { color:'#d35400', pts:[
+      [23.1314,113.2453,'陈家祠','岭南建筑之冠，门票10元，逛1.5小时',1],
+      [23.1287,113.2440,'文记河粉（西华路418号）','手工现切河粉，牛腩捞河粉15元。⚠️只开8:00–14:00、周一休息、常售罄，11:30前到！隔壁食盈碗仔翅可一起打卡',2],
+      [23.1372,113.2518,'专二港式饮品（荔湾分店）','只做丝袜奶茶+柠檬茶两款，16元/杯。地铁8号线彩虹桥站D口',3],
+      [23.1185,113.2362,'永庆坊','骑楼老街改造，钟书阁、粤剧艺术博物馆',4],
+      [23.1100,113.2395,'沙面岛','欧陆建筑群，黄昏散步拍照最佳',5],
+    ], route:[[23.1314,113.2453],[23.1287,113.2440],[23.1372,113.2518],[23.1185,113.2362],[23.1100,113.2395]] },
+  { color:'#8e44ad', pts:[
+      [23.1240,113.2890,'东山口','庙前西街、培正路红砖洋楼，咖啡小店慢逛',1],
+      [23.1195,113.3220,'利苑酒家（珠江新城店）','"粤菜黄埔军校"。⚠️十一务必提前3–5天订位！必点：冰烧三层肉、杨枝甘露',2],
+      [23.1160,113.3180,'花城广场 / 广东省博物馆','博物馆免费需公众号预约；广场看CBD天际线',3],
+      [23.1064,113.3245,'广州塔','夜景打卡，海心桥步行可达；不上塔也好看',4],
+    ], route:[[23.1240,113.2890],[23.1195,113.3220],[23.1160,113.3180],[23.1064,113.3245]] },
+  { color:'#27ae60', pts:[
+      [22.9893,113.2687,'广州南站','地铁2号线直达；城际到顺德站约10分钟，班次极密',1],
+      [22.8382,113.2618,'清晖园','岭南四大名园，门票15元，逛1.5小时',2],
+      [22.8365,113.2590,'华盖路步行街','民信/仁信双皮奶、韦记牛杂、欢姐伦教糕一路吃过去',3],
+      [22.8340,113.2650,'酒店：顺德大良','亚朵（清晖园附近）约450–550元/晚',4,'hotel'],
+    ], route:[[22.9893,113.2687],[22.8382,113.2618],[22.8365,113.2590]] },
+  { color:'#16a085', pts:[
+      [22.8420,113.2700,'龙的酒楼（早茶）','顺德老牌早茶，肠粉/虾饺水准在线，9点前到',1],
+      [22.8090,113.1400,'逢简水乡','坐手摇船慢游，打车约40分钟；备选：顺峰山公园（近、免费）',2],
+      [22.9893,113.2687,'广州南站（宿附近）','下午城际回广州，住南站附近，10/7中午从容返程',3,'hotel'],
+    ], route:[[22.8420,113.2700],[22.8090,113.1400],[22.9893,113.2687]] },
+];
+
+const macau = { color:'#7f8c8d', pts:[
+    [22.2206,113.5498,'珠海站 / 拱北口岸','顺德站→珠海站城际约1小时，出站步行过关',1],
+    [22.1966,113.5408,'澳门大三巴','大三巴→议事亭前地→官也街→安德鲁蛋挞，需有效澳门签注',2],
+  ], route:[[22.8382,113.2618],[22.2206,113.5498],[22.1966,113.5408]] };
+
+const allBounds = [];
+days.forEach(d=>{
+  d.pts.forEach(p=>{ mk(p[0],p[1],p[2],p[3],d.color,p[4],p[5]==='hotel').addTo(map); allBounds.push([p[0],p[1]]); });
+  L.polyline(d.route, {color:d.color, weight:4, opacity:0.85}).addTo(map);
+});
+macau.pts.forEach(p=>{ mk(p[0],p[1],p[2],p[3],macau.color,p[4]).addTo(map); });
+L.polyline(macau.route, {color:macau.color, weight:3, opacity:0.7, dashArray:'8 8'}).addTo(map);
+// 初始视野只框住广州+顺德主线（不含澳门，避免缩得太小看不清地标）
+map.fitBounds(allBounds, {padding:[40,40]});
+
+document.querySelectorAll('.day').forEach((el,i)=>{
+  el.addEventListener('click', ()=>{
+    const d = i < days.length ? days[i] : macau;
+    map.flyToBounds(L.latLngBounds(d.pts.map(p=>[p[0],p[1]])), {padding:[60,60], duration:0.8});
+  });
+});
+</script>
+</body>
+</html>
