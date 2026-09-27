@@ -29,7 +29,20 @@
   .alt-marker { display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#2e7d32; color:#fff; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); font-size:12px; }
   .hotel-marker { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:#2c3e50; color:#fff; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); font-size:14px; }
   .leaflet-popup-content { font-size:13px; line-height:1.7; font-family:inherit; }
-  @media (max-width:800px){ body{flex-direction:column;} #sidebar{width:100%;min-width:0;height:45%;} }
+  #mobile-toggle { display:none; position:absolute; top:10px; right:10px; z-index:1001; background:#8c5a2b; color:#fff; border:none; border-radius:20px; padding:8px 16px; font-size:13px; font-weight:bold; box-shadow:0 2px 8px rgba(0,0,0,.35); }
+  @media (max-width:800px){
+    body { flex-direction:column; }
+    #mobile-toggle { display:block; }
+    #map { order:-1; height:36vh; flex:none; }
+    #sidebar { width:100%; min-width:0; flex:1; border-right:none; border-top:1px solid #e3ddd0; }
+    body.map-full #map { height:100vh; }
+    body.map-full #sidebar { display:none; }
+    .legend { font-size:11px; padding:6px 10px; bottom:8px; right:8px; line-height:1.7; }
+    .day-head { padding:12px; font-size:15px; }
+    .day-body { font-size:13.5px; padding:12px; }
+    .leaflet-popup-content { font-size:12px; max-width:210px; }
+    h1 { font-size:17px; }
+  }
 </style>
 </head>
 <body>
@@ -134,6 +147,7 @@
   <div><span class="dot" style="background:#16a085"></span>D5 水乡 + 回广州</div>
   <div><span class="dot" style="background:#2e7d32"></span>绿点 = 备选餐厅</div>
 </div>
+<button id="mobile-toggle">🗺️ 全屏地图</button>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const map = L.map('map', {zoomSnap:0.5}).setView([23.08, 113.28], 10.5);
@@ -216,9 +230,19 @@ document.querySelectorAll('.day').forEach((el,i)=>{
   el.addEventListener('click', ()=>{
     const d = days[i];
     if (!d) return;
+    // 手机端点击某天行程时自动展开全屏地图定位
+    if (window.innerWidth<=800 && !document.body.classList.contains('map-full')) toggleMap(true);
     map.flyToBounds(L.latLngBounds(d.pts.map(p=>[p[0],p[1]])), {padding:[60,60], duration:0.8});
   });
 });
+
+const mt = document.getElementById('mobile-toggle');
+function toggleMap(full){
+  document.body.classList.toggle('map-full', full);
+  mt.textContent = document.body.classList.contains('map-full') ? '📋 看行程' : '🗺️ 全屏地图';
+  setTimeout(()=>map.invalidateSize(), 250);
+}
+mt.addEventListener('click', ()=>toggleMap());
 </script>
 </body>
 </html>
