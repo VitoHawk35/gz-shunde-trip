@@ -18,12 +18,15 @@
   .day-body { padding:10px 12px; font-size:13px; line-height:1.9; color:#444; }
   .day-body b { color:#8c5a2b; }
   .tag { display:inline-block; background:#f6efe3; color:#8c5a2b; border-radius:4px; padding:0 6px; font-size:12px; margin-right:4px; }
+  .alt { display:inline-block; background:#eef5ee; color:#2e7d32; border-radius:4px; padding:0 6px; font-size:12px; }
   .warn { color:#c0392b; font-size:12px; }
+  .avoid { color:#999; font-size:12px; }
   .tip-box { background:#fdf6e7; border-left:4px solid #e0a63f; padding:10px 12px; font-size:12.5px; line-height:1.8; color:#6b5423; border-radius:6px; margin-bottom:14px; }
   .legend { position:absolute; bottom:16px; right:16px; z-index:1000; background:rgba(255,255,255,.94); border-radius:8px; padding:10px 14px; font-size:12px; line-height:1.9; box-shadow:0 2px 8px rgba(0,0,0,.2); }
   .legend span.dot { display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
   .num-marker { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); color:#fff; font-weight:bold; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); }
   .num-marker span { transform:rotate(45deg); font-size:13px; }
+  .alt-marker { display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#2e7d32; color:#fff; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); font-size:12px; }
   .hotel-marker { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:#2c3e50; color:#fff; border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.4); font-size:14px; }
   .leaflet-popup-content { font-size:13px; line-height:1.7; font-family:inherit; }
   @media (max-width:800px){ body{flex-direction:column;} #sidebar{width:100%;min-width:0;height:45%;} }
@@ -32,31 +35,35 @@
 <body>
 <div id="sidebar">
   <h1>🥢 广州 + 顺德 十一慢游</h1>
-  <div class="subtitle">10/2（周五）18:00 抵达白云机场 → 10/7（周三）中午返程<br>双人 · 慢节奏 · 住宿预算 550 元/晚 · 点击每一天可在地图上定位</div>
+  <div class="subtitle">10/2（周五）18:00 抵达白云机场 → 10/7（周三）中午返程<br>双人 · 慢节奏 · 点击每一天可在地图上定位<br><span class="alt">备选</span> = 绿色标记，排队太久/没订上时的Plan B，基本都在正选附近</div>
 
   <div class="tip-box">
-    💡 <b>核心思路</b>：广州 3 晚（北京路/公园前一带）→ 顺德 1 晚（大良）→ 最后 1 晚住广州南站附近，第二天中午从容返程。<b>港澳这次建议不去</b>（理由见文末），把节奏留给吃。
+    💡 <b>核心思路</b>：广州 3 晚（汉庭越秀公园纪念堂店，已定）→ 顺德 1 晚（大良）→ 最后 1 晚住广州南站附近，第二天中午从容返程。<b>港澳这次不去</b>，把节奏留给吃。
   </div>
 
   <div class="day" data-day="1">
     <div class="day-head" style="background:#c0392b">D1 · 10/2（周五）抵达日</div>
     <div class="day-body">
       18:00 白云机场落地 → <b>地铁 3 号线</b>直达市区（约 50 分钟）<br>
-      🏨 入住<b>汉庭（越秀公园纪念堂店）</b>：解放北路 783 号，2 号线纪念堂站 270 米<br>
-      🍲 晚餐：<b>惠食佳·啫八（滨江西路）</b>——啫啫煲本煲，打车约 10 分钟；<span class="warn">国庆必排队，下地铁先打电话/美味不用等取号</span><br>
-      🌃 饭后沿珠江散步，或去北京路看大佛寺夜景（2 号线 1 站到公园前）
+      🏨 入住<b>汉庭（越秀公园纪念堂店）</b>：解放北路 783 号，2 号线纪念堂站 270 米 <span class="alt">已定 500/晚</span><br>
+      🍲 晚餐首选：<b>惠食佳·啫八（滨江西路）</b>——啫啫煲本煲，打车约 10 分钟；<span class="warn">国庆必排队，下地铁先打电话/美味不用等取号</span><br>
+      <span class="alt">排队太久换</span>：<b>大鸽饭</b>（西湖路 68 号大佛寺对面，生炸红烧乳鸽，人均 120）——先到店取号再逛北京路；甜品加 <b>五代同糖</b>（榴莲河粉，人均 35，大鸽饭隔壁）或 <b>达杨原味炖品</b>（文明路，原只椰子炖竹丝鸡，人均 25）<br>
+      🌃 饭后沿珠江散步，或去北京路看大佛寺夜景（外墙亮灯 19:00–22:00，本地人只打卡外墙不进寺）
     </div>
   </div>
 
   <div class="day" data-day="2">
     <div class="day-head" style="background:#d35400">D2 · 10/3（周六）老西关美食日</div>
     <div class="day-body">
-      🍵 早茶：点都德/陶陶居（就近，9 点前到不排队）<br>
-      ⛩️ <b>陈家祠</b>（岭南建筑，1.5 小时）<br>
-      🍜 午餐：<b>文记河粉（西华路 418 号）</b>——手工现切河粉，<span class="warn">只开 8:00–14:00、周一休、常提前售罄，务必 11 点半前到</span>；隔壁就是食盈碗仔翅<br>
-      🧋 <b>专二港式饮品（荔湾分店，彩虹桥站 D 口）</b>——只做丝袜奶茶 + 柠檬茶两款，人均 16 元<br>
-      🏮 下午 <b>永庆坊</b>（钟书阁、粤剧博物馆）→ 黄昏 <b>沙面岛</b>散步<br>
-      🍢 晚餐可在上下九/宝华路解决
+      🍵 早茶：酒店楼下陶陶居 / 点都德（9 点前到不排队）；<span class="alt">备选</span>银灯食府（文化公园店），等位时可先逛隔壁十三行博物馆（免费，公众号提前 1 天约）<br>
+      ⛩️ <b>陈家祠</b>（岭南建筑，1.5 小时，门票 10 元，提前 1 天小程序"广东民间工艺博物馆"预约）<br>
+      🍜 午餐 <b>西华路一条龙</b>（姐姐私藏动线，全程步行 5–15 分钟）：<br>
+      <b>文记河粉</b>（手工现切，<span class="warn">只开 8:00–14:00、周一休、常售罄，11 点半前到</span>）→ 对面<b>厚街烧鹅濑粉</b>（人均 30）→ <b>英姐鲜奶</b>（顺德水牛奶双皮奶/姜撞奶，人均 15）→ <b>沙湾甜品食馆</b>（凤凰炒奶，三十年老字号）→ <b>陈双计</b>钵仔糕（蓝莓/椰汁红豆，7–10 元，回陈家祠顺路）<br>
+      🧋 <b>专二港式饮品（彩虹桥站 D 口）</b>——丝袜奶茶 + 柠檬茶，广州柠檬茶天花板，人均 16<br>
+      <span class="avoid">⚠️ 姐姐避雷：西华路的芳记、珍珍、荔林、亚信四季饮、兴兴旺、芝麻糊世家——网红排队但出品不合格；北京路"百花""玫瑰"等花名糖水铺专做游客生意</span><br>
+      🏝️ 下午 <b>沙面岛</b>散步（欧陆建筑群）<br>
+      🏮 <b>晚上再去永庆坊</b>（白天没意思！亮灯 19:00–21:00，月亮桥网红机位；餐吧酒吧气氛好；手信：莲香楼腊肠老婆饼、猫的天空冰箱贴）<br>
+      🍢 晚餐：上下九/宝华路小吃 或 永庆坊餐吧解决
     </div>
   </div>
 
@@ -64,9 +71,12 @@
     <div class="day-head" style="background:#8e44ad">D3 · 10/4（周日）新城中轴线</div>
     <div class="day-body">
       ☕ 上午<b>东山口</b>慢逛：庙前西街、培正路红砖洋楼、觉园<br>
-      🥢 午餐：<b>利苑酒家（珠江新城店）</b>——"粤菜黄埔军校"，<span class="warn">十一务必提前 3–5 天订位</span>，推荐冰烧三层肉、杨枝甘露（发源地）<br>
-      🏙️ 下午<b>花城广场</b>→ 广东省博物馆（免费，需预约）→ 海心桥<br>
-      🗼 傍晚<b>广州塔</b>看夜景（不上塔也好看，省钱省力）
+      🥢 午餐首选：<b>利苑酒家（珠江新城店）</b>——"粤菜黄埔军校"，<span class="warn">十一务必提前 3–5 天订位</span>，推荐冰烧三层肉、杨枝甘露（发源地）<br>
+      <span class="alt">没订上换</span>：<b>潮发潮汕牛肉店</b>（花城汇中区，省博步行 8 分钟，人均 80–100）；兜底：<b>花城汇美食区 500+ 家店</b>，国庆也全开<br>
+      🏙️ 下午<b>花城广场</b>→ 广东省博物馆（免费，<span class="warn">提前 7 天公众号预约，每晚 22:00 放票，当天 16:00 停止入馆</span>）→ 海心桥<br>
+      🚋 傍晚可选<b>有轨电车"最美 7 公里"</b>（广州塔 A 口上车，单程 2 元 / 全天票 6.9 元无限坐，沿江看日落）<br>
+      🗼 晚上<b>广州塔</b>夜景（不上塔也好看，花城广场是最佳免费机位）<br>
+      🍰 晚餐：<b>蔡澜点心</b>（花城汇中区，创新派粤式点心，人均 100）
     </div>
   </div>
 
@@ -74,20 +84,21 @@
     <div class="day-head" style="background:#27ae60">D4 · 10/5（周一）转场顺德</div>
     <div class="day-body">
       睡到自然醒 → 地铁 2 号线到<b>广州南站</b> → 城际列车 <b>10 分钟到顺德站</b>（班次极密，随买随走）<br>
-      🏨 入住大良酒店，行李放下再逛<br>
-      🌿 下午<b>清晖园</b>（岭南四大名园）→ <b>华盖路步行街</b><br>
+      🏨 入住大良酒店，行李放下再逛 <span class="warn">⚠️未定：首选亚朵（清晖园店）/ 全季（华盖路店），地图上有 4 家对比</span><br>
+      🌿 下午<b>清晖园</b>（岭南四大名园，门票 15 元）→ <b>华盖路步行街</b><br>
       🍮 华盖路一路吃：民信/仁信双皮奶、韦记牛杂、欢姐伦教糕<br>
-      🐟 晚餐：均安鱼饼/鱼腐（鱼丸本丸）、手打牛肉丸、毋米粥火锅——女朋友的心愿一次满足
+      🐟 晚餐：均安鱼饼/鱼腐（鱼丸本丸）、手打牛肉丸、毋米粥火锅——女朋友的心愿一次满足<br>
+      <span class="alt">排队太久换</span>：华盖路周边小巷老店很多，哪家队伍短吃哪家，顺德餐饮业整体水准兜底
     </div>
   </div>
 
   <div class="day" data-day="5">
     <div class="day-head" style="background:#16a085">D5 · 10/6（周二）顺德慢半天 → 回广州</div>
     <div class="day-body">
-      🍵 顺德早茶：龙的酒楼/顺德人家（虾饺、烧卖、肠粉水准都在线）<br>
+      🍵 顺德早茶：龙的酒楼/顺德人家（虾饺、烧卖、肠粉水准都在线，9 点前到）<br>
       🛶 上午<b>逢简水乡</b>（"小周庄"，坐手摇船慢慢晃，打车约 40 分钟）；不想去远就改<b>顺峰山公园</b>（近、免费）<br>
       🍚 午餐：红星光发煲仔饭 或 黄但记陈村粉<br>
-      🚄 下午 4–5 点城际回广州南 → 🏨 住广州南站附近<br>
+      🚄 下午 4–5 点城际回广州南 → 🏨 住广州南站附近 <span class="warn">⚠️未定：首选全季南站东广场店（有免费接送站，别订成双涌路那家）/ 备选汉庭南站店</span><br>
       晚上南站商圈随便吃点，早点休息
     </div>
   </div>
@@ -99,19 +110,19 @@
     </div>
   </div>
 
-  <div class="day" data-day="7">
-    <div class="day-head" style="background:#7f8c8d">备选 · 澳门一日游（灰色虚线）</div>
-    <div class="day-body">
-      如果一定要去港澳，<b>只推荐澳门</b>：顺德站 → 珠海站（城际约 1 小时）→ 拱北口岸过关 → 大三巴/官也街/安德鲁蛋挞，当晚回珠海或广州。<br>
-      ⚠️ 需<b>有效澳门签注</b>（现在就要查通行证！）；代价是砍掉 D3（利苑/广州塔）。香港更远、国庆西九龙人挤人，不建议。
-    </div>
+  <div class="tip-box">
+    📋 <b>出发前必办清单</b><br>
+    · <b>现在</b>：订顺德酒店（10/5）+ 广州南站酒店（10/6）——国庆越晚越贵；利苑酒家打电话订位（10/4 午餐）<br>
+    · <b>9/28 晚 22:00</b>：抢广东省博物馆 10/4 的票（每晚 22:00 放 7 天后的票）<br>
+    · <b>10/2 晚</b>：小程序约陈家祠（10/3 用）；公众号约十三行博物馆（备选，10/3 用）<br>
+    · <b>全程</b>：惠食佳/大鸽饭这类热门店，到店前先"美味不用等"App 取号
   </div>
 
   <div class="tip-box">
-    🏨 <b>住宿建议（国庆涨价，现在就订）</b><br>
-    · 广州 3 晚（10/2–4）：<b>汉庭（越秀公园纪念堂店）</b>解放北路 783 号，2 号线纪念堂站旁，约 300–450；备选全季（北京路团一大广场店）<br>
-    · 顺德 1 晚（10/5）：亚朵（顺德清晖园店），约 450–550<br>
-    · 最后 1 晚（10/6）：全季「广州南站东广场」店（有免费接送站，别订成双涌路那家），约 350–500
+    🏨 <b>住宿状态</b><br>
+    · 广州 3 晚（10/2–4）：✅ <b>汉庭（越秀公园纪念堂店）</b>已定，500/晚，2 号线纪念堂站旁，楼下就是陶陶居<br>
+    · 顺德 1 晚（10/5）：⚠️未定——首选亚朵（顺德清晖园店，地铁口 40 米）或全季（清晖园华盖路店，楼下就是吃的），约 450–550<br>
+    · 最后 1 晚（10/6）：⚠️未定——首选全季「广州南站东广场」店（有免费接送站），备选汉庭（广州南站店，步行 5 分钟最近）
   </div>
 </div>
 <div id="map"></div>
@@ -121,7 +132,7 @@
   <div><span class="dot" style="background:#8e44ad"></span>D3 新城中轴</div>
   <div><span class="dot" style="background:#27ae60"></span>D4 转场顺德</div>
   <div><span class="dot" style="background:#16a085"></span>D5 水乡 + 回广州</div>
-  <div><span class="dot" style="background:#7f8c8d"></span>备选 澳门一日</div>
+  <div><span class="dot" style="background:#2e7d32"></span>绿点 = 备选餐厅</div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -137,10 +148,11 @@ const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {m
 gaode.addTo(map);
 L.control.layers({'高德地图（中文地标，推荐）': gaode, '高德卫星影像': gaodeSat, 'OpenStreetMap（备用）': osm}).addTo(map);
 
-function mk(lat, lng, name, desc, color, num, hotel){
-  const icon = hotel
-    ? L.divIcon({className:'', html:`<div class="hotel-marker">🏨</div>`, iconSize:[26,26], iconAnchor:[13,13]})
-    : L.divIcon({className:'', html:`<div class="num-marker" style="background:${color}"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26]});
+function mk(lat, lng, name, desc, color, num, hotel, alt){
+  let icon;
+  if (hotel) icon = L.divIcon({className:'', html:`<div class="hotel-marker">🏨</div>`, iconSize:[26,26], iconAnchor:[13,13]});
+  else if (alt) icon = L.divIcon({className:'', html:`<div class="alt-marker">备</div>`, iconSize:[22,22], iconAnchor:[11,11]});
+  else icon = L.divIcon({className:'', html:`<div class="num-marker" style="background:${color}"><span>${num}</span></div>`, iconSize:[26,26], iconAnchor:[13,26]});
   const amapUrl = `https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(name)}&src=guangzhou-trip&callnative=1`;
   return L.marker([lat,lng], {icon}).bindPopup(
     `<b>${name}</b><br>${desc}<br><a href="${amapUrl}" target="_blank" style="color:#1976d2;font-weight:bold">📍 在高德地图中打开（可导航）</a>`,
@@ -150,28 +162,37 @@ function mk(lat, lng, name, desc, color, num, hotel){
 const days = [
   { color:'#c0392b', pts:[
       [23.3924,113.2988,'白云国际机场','10/2 18:00 抵达，地铁3号线进市区（约50分钟）',1],
-      [23.1328,113.2595,'汉庭（广州越秀公园纪念堂店）⭐候选','解放北路783号，中山纪念堂对面，2号线纪念堂站270米。楼下陶陶居早茶、2号线直达广州南站，10/2–10/5 住3晚',2,'hotel'],
+      [23.1328,113.2595,'汉庭（广州越秀公园纪念堂店）✅已定','解放北路783号，中山纪念堂对面，2号线纪念堂站270米。楼下陶陶居早茶、2号线直达广州南站，10/2–10/5 住3晚，500/晚',2,'hotel'],
       [23.1055,113.2520,'惠食佳·啫八（滨江西路）','啫啫煲必吃！国庆排长队，先线上取号。推荐：啫啫黄鳝、啫啫生肠。酒店打车约10分钟',3],
-      [23.1265,113.2775,'全季（北京路团一大广场店）· 备选','东华西路永安东街29-31号，6号线团一大广场站旁，楼下小吃多、离东山口近。订的是这家的话看这里',4,'hotel'],
+      [23.1217,113.2683,'【备选】大鸽饭（西湖路68号）','惠食佳排不上就来这：生炸红烧乳鸽、风生水起捞乳鸽，人均120。大佛寺正对面，先取号再逛北京路',4,null,'alt'],
+      [23.1215,113.2688,'【备选】五代同糖','新派粤式糖水：榴莲河粉、芒果河粉，人均35，就在大鸽饭旁边',5,null,'alt'],
+      [23.1235,113.2730,'【备选】达杨原味炖品（文明路160-1号）','老字号炖汤：原只椰子炖竹丝鸡，人均20–30，大佛寺步行10分钟',6,null,'alt'],
     ], route:[[23.3924,113.2988],[23.1328,113.2595],[23.1055,113.2520]] },
   { color:'#d35400', pts:[
-      [23.1314,113.2453,'陈家祠','岭南建筑之冠，门票10元，逛1.5小时',1],
-      [23.1287,113.2440,'文记河粉（西华路418号）','手工现切河粉，牛腩捞河粉15元。⚠️只开8:00–14:00、周一休息、常售罄，11:30前到！隔壁食盈碗仔翅可一起打卡',2],
-      [23.1372,113.2518,'专二港式饮品（荔湾分店）','只做丝袜奶茶+柠檬茶两款，16元/杯。地铁8号线彩虹桥站D口',3],
-      [23.1185,113.2362,'永庆坊','骑楼老街改造，钟书阁、粤剧艺术博物馆',4],
-      [23.1100,113.2395,'沙面岛','欧陆建筑群，黄昏散步拍照最佳',5],
-    ], route:[[23.1314,113.2453],[23.1287,113.2440],[23.1372,113.2518],[23.1185,113.2362],[23.1100,113.2395]] },
+      [23.1314,113.2453,'陈家祠','岭南建筑之冠，门票10元，提前1天小程序"广东民间工艺博物馆"预约，逛1.5小时',1],
+      [23.1287,113.2440,'文记河粉（西华路418号）','广州最薄的手工河粉，牛腩捞河粉15元。⚠️只开8:00–14:00、周一休息、常售罄，11:30前到！',2],
+      [23.1292,113.2448,'厚街烧鹅濑粉（西华路469号）','文记对面马路，烧鹅濑粉人均30',3],
+      [23.1298,113.2468,'英姐鲜奶（西华路华业大厦1层）','顺德水牛奶做的双皮奶、姜撞奶，人均15。水牛奶是顺德甜品灵魂，女朋友必爱',4],
+      [23.1302,113.2485,'沙湾甜品食馆（西华路第一津33号）','顺德传统甜品老字号，开了二三十年。推荐：沙湾姜撞奶、凤凰炒奶，人均15',5],
+      [23.1338,113.2455,'陈双计（康王北路1081号）','古早钵仔糕，蓝莓味/椰汁红豆，7–10元。广州快绝迹的小食，回陈家祠顺路',6],
+      [23.1372,113.2518,'专二港式饮品（彩虹桥站D口）','只做丝袜奶茶+柠檬茶两款，广州柠檬茶天花板，16元/杯',7],
+      [23.1100,113.2395,'沙面岛','欧陆建筑群，下午散步拍照',8],
+      [23.1185,113.2362,'永庆坊（晚上去！）','白天没意思，亮灯19:00–21:00才漂亮。月亮桥网红机位、钟书阁、粤剧博物馆；手信：莲香楼、猫的天空',9],
+      [23.1090,113.2440,'【备选】银灯食府（文化公园店）','早茶备选：平民路线人均80–100，等位时可先逛隔壁十三行博物馆（免费，公众号提前1天约）',10,null,'alt'],
+    ], route:[[23.1314,113.2453],[23.1287,113.2440],[23.1292,113.2448],[23.1298,113.2468],[23.1302,113.2485],[23.1338,113.2455],[23.1372,113.2518],[23.1100,113.2395],[23.1185,113.2362]] },
   { color:'#8e44ad', pts:[
       [23.1240,113.2890,'东山口','庙前西街、培正路红砖洋楼，咖啡小店慢逛',1],
       [23.1195,113.3220,'利苑酒家（珠江新城店）','"粤菜黄埔军校"。⚠️十一务必提前3–5天订位！必点：冰烧三层肉、杨枝甘露',2],
-      [23.1160,113.3180,'花城广场 / 广东省博物馆','博物馆免费需公众号预约；广场看CBD天际线',3],
-      [23.1064,113.3245,'广州塔','夜景打卡，海心桥步行可达；不上塔也好看',4],
+      [23.1185,113.3195,'【备选】潮发潮汕牛肉店（花城汇中区）','利苑没订上就来这，省博步行8分钟，人均80–100。花城汇500+家店兜底',3,null,'alt'],
+      [23.1160,113.3180,'花城广场 / 广东省博物馆','博物馆免费，提前7天公众号预约（每晚22:00放票），16:00停止入馆；广场看CBD天际线',4],
+      [23.1180,113.3205,'【备选】蔡澜点心（花城汇中区）','晚餐备选：创新派粤式点心，人均100',5,null,'alt'],
+      [23.1064,113.3245,'广州塔 / 有轨电车','夜景打卡，海心桥步行可达；可选"最美7公里"有轨电车（A口上车，单程2元/全天6.9元）',6],
     ], route:[[23.1240,113.2890],[23.1195,113.3220],[23.1160,113.3180],[23.1064,113.3245]] },
   { color:'#27ae60', pts:[
       [22.9893,113.2687,'广州南站','地铁2号线直达；城际到顺德站约10分钟，班次极密',1],
       [22.8382,113.2618,'清晖园','岭南四大名园，门票15元，逛1.5小时',2],
       [22.8365,113.2590,'华盖路步行街','民信/仁信双皮奶、韦记牛杂、欢姐伦教糕一路吃过去',3],
-      [22.8450,113.2660,'全季（顺德清晖园店）· 云良路71号','你问的这家。⚠️距清晖园约860米、大良钟楼站780米，是几家候选里最偏的，晚上去华盖路吃东西要走15分钟',4,'hotel'],
+      [22.8450,113.2660,'全季（顺德清晖园店）· 云良路71号','⚠️距清晖园约860米、大良钟楼站780米，是几家候选里最偏的，晚上去华盖路吃东西要走15分钟',4,'hotel'],
       [22.8385,113.2625,'全季（顺德清晖园景区店）· 清晖路38号','✅位置最好：与清晖园一墙之隔，大良钟楼站A口步行3分钟',5,'hotel'],
       [22.8360,113.2600,'全季（顺德清晖园华盖路店）· 桥珠巷1-3号','✅紧挨华盖路步行街，2024年开业，吃完双皮奶2分钟回酒店',6,'hotel'],
       [22.8405,113.2615,'亚朵（顺德清晖园店）· 清晖路156号','✅距清晖园300米、大良钟楼站A口40米，2024年开业，床品最好',7,'hotel'],
@@ -183,24 +204,18 @@ const days = [
     ], route:[[22.8420,113.2700],[22.8090,113.1400],[22.9893,113.2687]] },
 ];
 
-const macau = { color:'#7f8c8d', pts:[
-    [22.2206,113.5498,'珠海站 / 拱北口岸','顺德站→珠海站城际约1小时，出站步行过关',1],
-    [22.1966,113.5408,'澳门大三巴','大三巴→议事亭前地→官也街→安德鲁蛋挞，需有效澳门签注',2],
-  ], route:[[22.8382,113.2618],[22.2206,113.5498],[22.1966,113.5408]] };
-
 const allBounds = [];
 days.forEach(d=>{
-  d.pts.forEach(p=>{ mk(p[0],p[1],p[2],p[3],d.color,p[4],p[5]==='hotel').addTo(map); allBounds.push([p[0],p[1]]); });
+  d.pts.forEach(p=>{ mk(p[0],p[1],p[2],p[3],d.color,p[4],p[5]==='hotel',p[6]==='alt').addTo(map); allBounds.push([p[0],p[1]]); });
   L.polyline(d.route, {color:d.color, weight:4, opacity:0.85}).addTo(map);
 });
-macau.pts.forEach(p=>{ mk(p[0],p[1],p[2],p[3],macau.color,p[4]).addTo(map); });
-L.polyline(macau.route, {color:macau.color, weight:3, opacity:0.7, dashArray:'8 8'}).addTo(map);
-// 初始视野只框住广州+顺德主线（不含澳门，避免缩得太小看不清地标）
+// 初始视野框住广州+顺德主线
 map.fitBounds(allBounds, {padding:[40,40]});
 
 document.querySelectorAll('.day').forEach((el,i)=>{
   el.addEventListener('click', ()=>{
-    const d = i < days.length ? days[i] : macau;
+    const d = days[i];
+    if (!d) return;
     map.flyToBounds(L.latLngBounds(d.pts.map(p=>[p[0],p[1]])), {padding:[60,60], duration:0.8});
   });
 });
